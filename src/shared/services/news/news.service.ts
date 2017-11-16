@@ -9,7 +9,7 @@ export class NewsService {
 
   load() {
     let headers = new Headers();
-    return this.http.get('https://hnapi.herokuapp.com/summaries?entries=10')
+    return this.http.get<any>('https://hnapi.herokuapp.com/summaries?entries=10')
     .map(data => data);
   }
 

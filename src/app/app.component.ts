@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.newsService.load()
       .subscribe(loadedNews => {
-        console.log(loadedNews);
+        loadedNews.forEach(x => this.summariesList.push(x));
         });
   }
 }
