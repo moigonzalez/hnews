@@ -4,8 +4,14 @@
       <article class="athing">
         <a class="athing__link" href="{{ s.link }}">
           <div class="athing__image" [style.background-image]="'url(' + s.image + ')'"></div>
-          <h2>{{ s.title }}</h2>
-          {{ s.minutes }}
+          <div class="athing__content">
+            <h2 class="athing__title">{{ s.title }}</h2>
+            <div class="athing__summary">
+              <div class=""><i class="fa fa-clock-o athing__icon" aria-hidden="true"></i>{{s.minutes}} minutes read</div>
+              <div class=""><i class="fa fa-question athing__icon" aria-hidden="true"></i>{{s.difficulty}} difficulty</div>
+              <div class=""><i class="fa fa-language athing__icon" aria-hidden="true"></i>{{s.words}} words</div>
+            </div>
+          </div>
         </a>
       </article>
     </li>
