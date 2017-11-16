@@ -6,7 +6,6 @@
 
   &__item {
     border: solid 1px #333;
-    border-radius: 5px;
     overflow: hidden;
   }
 }
@@ -42,5 +41,13 @@
 
   &__icon {
     margin-right: 5px;
+  }
+
+  &__summary {
+    text-align: center;
+  }
+
+  &__summaryItem {
+    margin-bottom: 5px;
   }
 }

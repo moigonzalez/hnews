@@ -2,14 +2,14 @@
   <ul class="grid">
     <li class="grid__item" *ngFor="let s of summariesList">
       <article class="athing">
-        <a class="athing__link" href="{{ s.link }}">
+        <a class="athing__link" rel="noopener" target="_blank" href="{{ s.link }}">
           <div class="athing__image" [style.background-image]="'url(' + s.image + ')'"></div>
           <div class="athing__content">
             <h2 class="athing__title">{{ s.title }}</h2>
             <div class="athing__summary">
-              <div class=""><i class="fa fa-clock-o athing__icon" aria-hidden="true"></i>{{s.minutes}} minutes read</div>
-              <div class=""><i class="fa fa-question athing__icon" aria-hidden="true"></i>{{s.difficulty}} difficulty</div>
-              <div class=""><i class="fa fa-language athing__icon" aria-hidden="true"></i>{{s.words}} words</div>
+              <div class="athing__summaryItem"><i class="fa fa-clock-o athing__icon" aria-hidden="true"></i>{{s.minutes}} minutes read</div>
+              <div class="athing__summaryItem"><i class="fa fa-question athing__icon" aria-hidden="true"></i>{{s.difficulty}} difficulty</div>
+              <div class="athing__summaryItem"><i class="fa fa-language athing__icon" aria-hidden="true"></i>{{s.words}} words</div>
             </div>
           </div>
         </a>
