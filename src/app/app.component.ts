@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { CommonModule } from '@angular/common';
 import { NewsService } from '../shared/services/news/news.service';
+import { TagPipe } from '../shared/pipes/tags.pipe';
 
 @Component({
   selector: 'app-root',

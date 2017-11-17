@@ -18,6 +18,7 @@
           <div class="athing__content">
             <h2 class="athing__title">{{ s.title }}</h2>
             <div class="athing__summary">
+              <div class="margin-bottom">{{s.topics | tagPipe }}</div>
               <div class="athing__summaryItem"><i class="fa fa-clock-o athing__icon" aria-hidden="true"></i>{{s.minutes}} minutes read</div>
               <div class="athing__summaryItem"><i class="fa fa-thermometer-three-quarters athing__icon" aria-hidden="true"></i>{{s.difficulty | number: '1.1-2' }} difficulty</div>
               <div class="athing__summaryItem"><i class="fa fa-language athing__icon" aria-hidden="true"></i>{{s.words}} words</div>
