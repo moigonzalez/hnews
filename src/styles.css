@@ -84,6 +84,11 @@ body {
   padding: 15px 40px;
 }
 
+.banner__link {
+  color: white;
+  text-decoration: none;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
