@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 import { HttpClientModule, HttpParams, HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs/Rx";
 import "rxjs/add/operator/map";
 import { Summary } from './summary.interface';
 
@@ -12,9 +11,5 @@ export class SummaryService {
     let headers = new Headers();
     return this.http.get<Summary[]>('https://hnapi.herokuapp.com/summaries?entries=10')
     .map(data => data);
-  }
-
-  handleErrors(error: Response) {
-    return Observable.throw(error);
   }
 }
