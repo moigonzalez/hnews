@@ -1,23 +1,24 @@
 import { Component, OnInit } from "@angular/core";
 import { CommonModule } from '@angular/common';
-import { NewsService } from '../shared/services/news/news.service';
+import { SummaryService } from '../shared/services/summaries/summary.service';
 import { TagPipe } from '../shared/pipes/tags.pipe';
+import { Summary } from '../shared/services/summaries/summary.interface';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  providers: [NewsService]
+  providers: [SummaryService]
 })
 export class AppComponent implements OnInit {
   title = 'HackerNews';
-  summariesList: Array<String> = [];
+  summariesList: Array<Summary> = [];
   summariesIsLoading: Boolean = true;
 
-  constructor(private newsService: NewsService) {}
+  constructor(private summaryService: SummaryService) {}
 
   ngOnInit() {
-    this.newsService.load()
+    this.summaryService.load()
       .subscribe(loadedNews => {
         loadedNews.forEach(x => this.summariesList.push(x));
         this.summariesIsLoading = false;
