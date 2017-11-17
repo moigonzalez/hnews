@@ -1,5 +1,16 @@
 <section class="container">
-  <ul class="grid">
+  <h1 class="pageTitle">HackerNews. Rethought.</h1>
+  <div class="loader grid" *ngIf="summariesIsLoading">
+    <div class="athing__placeholder grid__item"></div>
+    <div class="athing__placeholder grid__item"></div>
+    <div class="athing__placeholder grid__item"></div>
+    <div class="athing__placeholder grid__item"></div>
+    <div class="athing__placeholder grid__item"></div>
+    <div class="athing__placeholder grid__item"></div>
+    <div class="athing__placeholder grid__item"></div>
+    <div class="athing__placeholder grid__item"></div>
+  </div>
+  <ul class="grid" *ngIf="!summariesIsLoading">
     <li class="grid__item" *ngFor="let s of summariesList">
       <article class="athing">
         <a class="athing__link" rel="noopener" target="_blank" href="{{ s.link }}">
@@ -8,7 +19,7 @@
             <h2 class="athing__title">{{ s.title }}</h2>
             <div class="athing__summary">
               <div class="athing__summaryItem"><i class="fa fa-clock-o athing__icon" aria-hidden="true"></i>{{s.minutes}} minutes read</div>
-              <div class="athing__summaryItem"><i class="fa fa-question athing__icon" aria-hidden="true"></i>{{s.difficulty}} difficulty</div>
+              <div class="athing__summaryItem"><i class="fa fa-thermometer-three-quarters athing__icon" aria-hidden="true"></i>{{s.difficulty | number: '1.1-2' }} difficulty</div>
               <div class="athing__summaryItem"><i class="fa fa-language athing__icon" aria-hidden="true"></i>{{s.words}} words</div>
             </div>
           </div>

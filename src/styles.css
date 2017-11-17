@@ -63,6 +63,17 @@ body {
   color: #333;
 }
 
+.loader {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.pageTitle {
+  font-size: 35px;
+  text-align: center;
+  margin-top: 40px;
+}
+
 .banner {
   background-color: #333;
   width: 100%;

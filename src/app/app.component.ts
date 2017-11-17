@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { CommonModule } from '@angular/common';
 import { NewsService } from '../shared/services/news/news.service';
 
 @Component({
@@ -10,6 +11,7 @@ import { NewsService } from '../shared/services/news/news.service';
 export class AppComponent implements OnInit {
   title = 'HackerNews';
   summariesList: Array<String> = [];
+  summariesIsLoading: Boolean = true;
 
   constructor(private newsService: NewsService) {}
 
@@ -17,6 +19,7 @@ export class AppComponent implements OnInit {
     this.newsService.load()
       .subscribe(loadedNews => {
         loadedNews.forEach(x => this.summariesList.push(x));
+        this.summariesIsLoading = false;
         });
   }
 }
