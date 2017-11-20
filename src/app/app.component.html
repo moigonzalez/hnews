@@ -1,16 +1,6 @@
 <section class="container">
   <h1 class="pageTitle">HackerNews. Rethought.</h1>
-  <div class="loader grid" *ngIf="summariesIsLoading">
-    <div class="athing__placeholder grid__item"></div>
-    <div class="athing__placeholder grid__item"></div>
-    <div class="athing__placeholder grid__item"></div>
-    <div class="athing__placeholder grid__item"></div>
-    <div class="athing__placeholder grid__item"></div>
-    <div class="athing__placeholder grid__item"></div>
-    <div class="athing__placeholder grid__item"></div>
-    <div class="athing__placeholder grid__item"></div>
-  </div>
-  <ul class="grid" *ngIf="!summariesIsLoading">
+  <ul class="grid" (window:scroll)="loadMoreSummaries($event)">
     <li class="grid__item" *ngFor="let s of summariesList">
       <article class="athing">
         <a class="athing__link" rel="noopener" target="_blank" href="{{ s.link }}">
@@ -28,4 +18,10 @@
       </article>
     </li>
   </ul>
+  <div class="loader grid" *ngIf="summariesIsLoading">
+    <div class="athing__placeholder grid__item"></div>
+    <div class="athing__placeholder grid__item"></div>
+    <div class="athing__placeholder grid__item"></div>
+    <div class="athing__placeholder grid__item"></div>
+  </div>
 </section>

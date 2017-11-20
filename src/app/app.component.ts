@@ -11,17 +11,36 @@ import { Summary } from '../shared/services/summaries/summary.interface';
   providers: [SummaryService]
 })
 export class AppComponent implements OnInit {
-  title = 'HackerNews';
+  title: string = 'HackerNews';
   summariesList: Array<Summary> = [];
-  summariesIsLoading: Boolean = true;
+  summariesIsLoading: boolean = true;
+  currentPage: number = 0;
 
   constructor(private summaryService: SummaryService) {}
 
   ngOnInit() {
-    this.summaryService.load()
-      .subscribe(loadedNews => {
-        loadedNews.forEach(x => this.summariesList.push(x));
-        this.summariesIsLoading = false;
+    this.summaryService
+      .load()
+      .subscribe(
+        loadedNews => {
+          loadedNews.forEach(x => this.summariesList.push(x));
+          this.currentPage++;
+          this.summariesIsLoading = false;
+      }
+    );
+  }
+
+  loadMoreSummaries(e) {
+    const PAGE_OFFSET = 100;
+    if ((window.innerHeight + window.pageYOffset) >= (document.body.scrollHeight - PAGE_OFFSET) && !this.summariesIsLoading) {
+      this.summariesIsLoading = true;
+      this.summaryService
+        .getSummariesPage(this.currentPage)
+        .subscribe(loadedNews => {
+          loadedNews.forEach(x => this.summariesList.push(x));
+          this.currentPage++;
+          this.summariesIsLoading = false;
         });
+    }
   }
 }
