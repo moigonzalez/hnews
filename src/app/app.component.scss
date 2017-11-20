@@ -13,7 +13,12 @@
   display: grid;
   margin: 40px;
   grid-gap: 20px;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+
+  @media(max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
 
   &__item {
     border: solid 1px #333;
@@ -24,7 +29,7 @@
 .athing {
 
   &__placeholder {
-    padding-bottom: 40%;
+    padding-bottom: 75%;
     background-color: #333;
     @include animation('glow 1s infinite');
   }
@@ -54,9 +59,8 @@
   &__title {
     display: block;
     text-align: center;
-    font-size: 24px;
+    font-size: 20px;
     margin-bottom: 15px;
-    line-height: 30px;
   }
 
   &__image {
